@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "./ImageGallery.module.css";
+import PropType from "prop-types";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
+import styles from "./ImageGallery.module.css";
 
-const ImageGallery = ({ images }) => (
+const ImageGallery = ({ images, showLargeImage }) => (
   <ul className={styles.ImageGallery}>
     {images.map(({ id, webformatURL, tags, largeImageURL }) => (
       <ImageGalleryItem
@@ -11,9 +12,17 @@ const ImageGallery = ({ images }) => (
         webformatURL={webformatURL}
         tags={tags}
         largeImageURL={largeImageURL}
+        showImage={url => showLargeImage(url)}
       />
     ))}
   </ul>
 );
 
 export default ImageGallery;
+
+ImageGallery.PropType = {
+  images: PropType.array
+};
+ImageGallery.defaultProps = {
+  images: []
+};
