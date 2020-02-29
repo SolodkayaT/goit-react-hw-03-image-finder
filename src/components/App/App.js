@@ -94,7 +94,7 @@ export default class App extends Component {
         )}
         {largeImageUrl && (
           <Modal onClose={this.toggleModal}>
-            <img src={this.largeImageUrl} alt="" />
+            <img src={largeImageUrl} alt="" />
           </Modal>
         )}
       </section>
