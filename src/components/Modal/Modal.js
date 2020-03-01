@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import styles from "./Modal.module.css";
 
 export default class Modal extends Component {
+  backdropRef = createRef();
+
   componentDidMount() {
     window.addEventListener("keydown", this.handleKeyDown);
   }
@@ -16,9 +18,19 @@ export default class Modal extends Component {
     }
   };
 
+  handleBackdropClick = e => {
+    if (e.target === this.backdropRef.current) {
+      this.props.onClose();
+    }
+  };
+
   render() {
     return (
-      <div className={styles.Overlay}>
+      <div
+        className={styles.Overlay}
+        ref={this.backdropRef}
+        onClick={this.handleBackdropClick}
+      >
         <div className={styles.Modal}>{this.props.children}</div>
       </div>
     );

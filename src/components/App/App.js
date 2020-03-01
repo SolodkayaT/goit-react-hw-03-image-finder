@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import styles from "./App.module.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
+import styles from "./App.module.css";
+import imagesApi from "../../services/imagesApi";
+
 import ImageGallery from "../ImageGallery/ImageGallery";
 import SearchBar from "../SearchBar/SearchBar";
-import Loader from "react-loader-spinner";
 import Notification from "../Notification/Notification";
 import Button from "../Button/Button";
-import imagesApi from "../../services/imagesApi";
 import Modal from "../Modal/Modal";
 
 export default class App extends Component {
